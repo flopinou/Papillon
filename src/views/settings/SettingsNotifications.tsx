@@ -34,7 +34,7 @@ const SettingsNotifications: Screen<"SettingsNotifications"> = ({ navigation }) 
     marginBottom.value = withTiming(enabled ? 0 : -10, { duration: 200 });
   }, [enabled]);
 
-  const askEnabled = async (enabled) => {
+  const askEnabled = async (enabled: boolean) => {
     if (isExpoGo()) {
       alertExpoGo();
       return;
@@ -50,7 +50,7 @@ const SettingsNotifications: Screen<"SettingsNotifications"> = ({ navigation }) 
   const containerAnimatedStyle = useAnimatedStyle(() => {
     return {
       borderRadius: borderRadius.value,
-      width: width.value,
+      width: width.value as any,
       marginBottom: marginBottom.value,
     };
   });
